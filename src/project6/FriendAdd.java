@@ -3,7 +3,6 @@ package project6;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
-import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -20,7 +19,7 @@ import javax.swing.JTextField;
 public class FriendAdd extends JFrame{
 	FriendManager fm=FriendManager.getInstance();
 	
-	Dimension dim=new Dimension(600,300);
+	Dimension dim=new Dimension(700,400);
 	private JFrame frame=new JFrame("추가할 친구 정보");
 	
 	private JButton doneB=new JButton("Done");
@@ -76,6 +75,7 @@ public class FriendAdd extends JFrame{
 		frame.setVisible(true);
 		
 		}
+
 	
 	class doneAction implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
@@ -86,16 +86,25 @@ public class FriendAdd extends JFrame{
 			photo=txPhoto.getText().trim();
 			
 			if(name.equals("")||group.equals("")||phone.equals("")||email.equals("")||photo.equals("")) {
-				System.out.println("모든 정보를 입력해주세요");
+				System.out.println("Input every Information!");
 				addWindowListener(new Exit());
 			}
 			else {
-				fm.add(new Friend(name, group, phone, email, photo));
-				ShowFriendList sfl=new ShowFriendList(fm.load());				
+				Friend checkFriend=new Friend(name, group, phone, email, photo);
+				
+				if(fm.nameCheck(checkFriend)==true) {
+					fm.add(checkFriend);
+					new ShowFriendList(fm.showInfo());
+				}
+				else {
+					System.out.println("same name exist!");
+				}
+				}
+				
+			dispose();
 			}
 				
 		}
-	}
 	
 	class Exit extends WindowAdapter{
 		public void WindowClosing(WindowEvent e) {

@@ -29,16 +29,9 @@ public class FriendList {
 		}
 	}
 	
-	void friendInfo2(String name, String group, String phone, String email, String photo) {
-		Friend f=new Friend();
-		f=new Friend(name, group, phone, email, photo);
-		friend.add(f);
-		num++;
-	}
-	
 	//input line에 있는 친구 정보 수가 정확하지 않으면 에러메세지
 	void checkInputLine(String s) {
-		System.out.println("Irregular input line!  ; Skip the input line : "+s);
+		System.out.println("Irregular input line"+ "! : "+s);
 		return;
 	}
 	
@@ -60,8 +53,9 @@ public class FriendList {
 		return true;
 	}
 	
+	
 	public Friend getFriend(int i) {	
-		//겹치는 이름이 있는지 확인 후 Friend 정보 넘겨주기
+		//겹치는 이름이 있는지 확인 
 		if(!nameCheck(i)) { 
 			System.out.println("Name Conflict!");
 		}
@@ -69,11 +63,12 @@ public class FriendList {
 		return friend.get(i);
 	}
 	
+	//현재 FriendList클래스에 저장되어있는 friend ArrayList return 메소드
 	public ArrayList<Friend> getFriendArray(){
-	
 		return friend;
 	}
 	
+	//friend정보를 받아 ArrayList에 저장하는 메소드
 	public void setFriendArray(ArrayList<Friend> friend) {
 		this.friend=friend;
 	}

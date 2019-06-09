@@ -1,20 +1,13 @@
 package project6;
 
+
 public class Test {
 
 	public static void main(String[] args) {
 		
-		//File file=new File("./friendlist-norm.data");
-		//FriendListFile flf=new FriendListFile();
-		//FriendList fl=new FriendList();
-
-		
-		//fl=flf.readFileToList(file.getName());
-		
-		//ShowFriendList sfl=new ShowFriendList(fl);
-		
 		FriendManager fm=FriendManager.getInstance();
-		ShowFriendList sfl=new ShowFriendList(fm.load());
+		fm.load(); //파일 읽어오기
+		ShowFriendList sfl=new ShowFriendList(fm.showInfo()); //파일에서 읽어온 친구 정보를 GUI화면으로 실행
 	}
 
 }
