@@ -36,7 +36,8 @@ public class FriendListFile {
 			input.close();
 			
 		}catch(FileNotFoundException fe) {
-			System.out.println("Unknown File!"); //파일을 찾지 못했을 때 에러메세지
+			//파일을 찾지 못했을 때 에러메세지
+			System.out.println("Unknown File!"); 
 		}catch(Exception e) {
 			System.out.println(e);
 		}

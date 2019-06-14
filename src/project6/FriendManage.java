@@ -10,9 +10,11 @@ public interface FriendManage {
 	
 	public void load(); //파일 읽어오기
 	
-	public ArrayList<Friend> add(Friend f); //FriendAdd 클래스에서 Add 버튼 클릭시
+	public void add(Friend f); //FriendAdd 클래스에서 Add 버튼 클릭시
 	
 	public boolean nameCheck(Friend f); //Add 버튼을 눌렀을 때, 저장할 친구의 이름이 중복되는지 확인
+	
+	public boolean sameFriendCheck(Friend f); // Friend 목록에 같은 사람이 있는지 확인
 	
 	public void search(int num); // ShowFriendList에서 CheckBox 클릭시, 선택된 라인의 정수값 저장
 	

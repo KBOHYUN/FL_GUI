@@ -2,7 +2,7 @@ package project6;
 
 import java.util.ArrayList;
 
-public class FriendManager {
+public class FriendManager implements FriendManage{
 	private ArrayList<Friend> friends;
 
 	private FriendListFile flf=new FriendListFile();
@@ -44,6 +44,17 @@ public class FriendManager {
 				}
 			}
 		return true;
+	}
+	
+	public boolean sameFriendCheck(Friend f) {
+		int checknum=friends.size();
+		int i=0;
+		for(i=0;i<checknum;i++) {
+			if(f.equals(friends.get(i))) { 
+				return false;
+			}
+		}
+	return true;
 	}
 	
 	public void search(int num) {
