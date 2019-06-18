@@ -2,6 +2,8 @@ package project6;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -28,6 +30,9 @@ public class ShowFriendList extends JFrame implements ActionListener{
 	
 	private JPanel infoP; //정보가 들어갈 전체 패널 생성
 	private JPanel infoLabelP; //상단의 목록 패널
+	
+	//폰트 설정
+	Font textFont=new Font("BahnschriftSemiBold",Font.PLAIN,12);
 	
 	//체크박스 생성
 	private JCheckBox[] box=new JCheckBox[15];
@@ -87,7 +92,9 @@ public class ShowFriendList extends JFrame implements ActionListener{
 			infoContentP.setLayout(new GridLayout(1,6));
 			
 			//체크박스 생성
-			box[i]=new JCheckBox(names[i]);
+			//box[i]=new JCheckBox(names[i]); - CheckBox에 이름이 뜨는 경우
+			box[i]=new JCheckBox(); //CheckBox에 이름이 안 뜨는 경우
+			box[i].setFont(textFont);
 			group.add(box[i]);
 			box[i].addItemListener(new SelectItemListener());
 			infoContentP.add(box[i]);
@@ -95,12 +102,14 @@ public class ShowFriendList extends JFrame implements ActionListener{
 			//이름 TextField 생성
 			nameT[i]=friend.get(i).getName();
 			nameTf[i]=new JTextField(10);
+			nameTf[i].setFont(textFont);
 			nameTf[i].setText(nameT[i]);
 			infoContentP.add(nameTf[i]);
 			
 			//그룹 TextField 생성
 			groupT[i]=friend.get(i).getGroup();
 			groupTf[i]=new JTextField(10);
+			groupTf[i].setFont(textFont);
 			groupTf[i].setText(groupT[i]);
 			infoContentP.add(groupTf[i]);
 			
@@ -108,12 +117,14 @@ public class ShowFriendList extends JFrame implements ActionListener{
 			phoneT[i]=friend.get(i).getPhoneNum();
 			phoneTf[i]=new JTextField(30);
 			phoneTf[i].setText(phoneT[i]);
+			phoneTf[i].setFont(textFont);
 			infoContentP.add(phoneTf[i]);
 			
 			//이메일 TextField 생성
 			emailT[i]=friend.get(i).getEmailAddress();
 			emailTf[i]=new JTextField(30);
 			emailTf[i].setText(emailT[i]);
+			emailTf[i].setFont(textFont);
 			infoContentP.add(emailTf[i]);
 			
 			//사진 Label 생성 -> 수정 불가능
@@ -136,6 +147,7 @@ public class ShowFriendList extends JFrame implements ActionListener{
 		buttonP.add(modifyB);
 		buttonP.add(saveB);
 		
+		frame.setLocation(100, 100);
 		frame.setPreferredSize(dim);
 		frame.add(infoP,BorderLayout.CENTER);
 		frame.add(buttonP,BorderLayout.EAST);

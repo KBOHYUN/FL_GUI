@@ -31,7 +31,7 @@ public class FriendList {
 	
 	//input line에 있는 친구 정보 수가 정확하지 않으면 에러메세지
 	void checkInputLine(String s) {
-		System.out.println("Irregular input line"+ "! : "+s);
+		//System.out.println("Irregular input line"+ "! : "+s);
 		return;
 	}
 	
