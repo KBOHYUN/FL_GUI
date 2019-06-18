@@ -2,7 +2,6 @@ package project6;
 
 import java.util.ArrayList;
 
-
 //전체 클래스에서 필요한 메소드를 한 번에 관리하는 인터페이스
 //FriendManager 클래스에 있는 ArrayList<Friend>하나에 모든 데이터 처리를 할 수 있다
 

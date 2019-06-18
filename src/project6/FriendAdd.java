@@ -1,7 +1,9 @@
 package project6;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,8 +21,12 @@ import javax.swing.JTextField;
 public class FriendAdd extends JFrame{
 	FriendManager fm=FriendManager.getInstance();
 	
-	Dimension dim=new Dimension(700,400);
+	Dimension dim=new Dimension(900,100);
+
 	private JFrame frame=new JFrame("추가할 친구 정보");
+	
+	//폰트 설정
+	Font labelFont =new Font("BahnschriftSemiBold",Font.BOLD,13);
 	
 	//Done 버튼 생성
 	private JButton doneB=new JButton("Done");
@@ -43,19 +49,35 @@ public class FriendAdd extends JFrame{
 	private String phone;
 	private String photo;
 
+	@SuppressWarnings("static-access")
 	FriendAdd(){
-	
+		
 		panel.setLayout(new BoxLayout(panel,BoxLayout.X_AXIS));
 		panel.setLayout(new GridLayout(2,1));
 		
 		//상단의 목록 정보 panel
 		labelPanel.setLayout(new BoxLayout(labelPanel,BoxLayout.X_AXIS));
 		labelPanel.setLayout(new GridLayout(1,5));
-		labelPanel.add(new JLabel("이름"));
-		labelPanel.add(new JLabel("그룹"));
-		labelPanel.add(new JLabel("전화"));
-		labelPanel.add(new JLabel("Email"));
-		labelPanel.add(new JLabel("사진"));
+		JLabel namel=new JLabel("Name");
+		namel.setFont(labelFont);
+		namel.setHorizontalAlignment(namel.CENTER);
+		labelPanel.add(namel);
+		JLabel groupl=new JLabel("Group");
+		groupl.setFont(labelFont);
+		groupl.setHorizontalAlignment(groupl.CENTER);
+		labelPanel.add(groupl);
+		JLabel phonel=new JLabel("Phone");
+		phonel.setFont(labelFont);
+		phonel.setHorizontalAlignment(phonel.CENTER);
+		labelPanel.add(phonel);
+		JLabel emaill=new JLabel("Email");
+		emaill.setFont(labelFont);
+		emaill.setHorizontalAlignment(emaill.CENTER);
+		labelPanel.add(emaill);
+		JLabel photol=new JLabel("Photo");
+		photol.setFont(labelFont);
+		photol.setHorizontalAlignment(photol.CENTER);
+		labelPanel.add(photol);
 		panel.add(labelPanel);
 		
 		//TextField가 들어갈 panel
@@ -79,8 +101,11 @@ public class FriendAdd extends JFrame{
 		
 		panel.add(textPanel);
 		
+		doneB.setFont(labelFont);
 		doneB.addActionListener(new doneAction());
 		
+		frame.setLocation(130, 300);
+		frame.setPreferredSize(dim);
 		frame.add(panel,BorderLayout.CENTER);
 		frame.add(doneB, BorderLayout.EAST);
 		frame.pack();
